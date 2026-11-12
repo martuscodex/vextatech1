@@ -1,12 +1,1602 @@
-<html>
-    <head>
-        <title>This is a test page.</title>
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vexta Industrial Solutions (Pty) Ltd | Multidisciplinary Engineering, Construction & Turnarounds</title>
+  <meta name="description" content="Premier South African multidisciplinary industrial engineering, construction, shutdown & turnaround (STO), MEIP/SMP, and asset maintenance partner across Sub-Saharan Africa." />
 
-    </head>
-    <body>
-        <p>
-            This is a test website to see how to properly host a basic website for free using Github Pages.
+  <!-- Google Fonts: Inter & Rajdhani for heavy geometric industrial display headings -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Rajdhani', 'sans-serif'],
+          },
+          colors: {
+            slateDark: '#0F172A',
+            slateCard: '#1E293B',
+            amberSafety: '#F59E0B',
+            amberHover: '#D97706',
+            steelBlue: '#0284C7',
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    /* Industrial Blueprint Grid Overlay */
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+
+    .blueprint-grid-light {
+      background-size: 32px 32px;
+      background-image: 
+        linear-gradient(to right, rgba(15, 23, 42, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(15, 23, 42, 0.04) 1px, transparent 1px);
+    }
+
+    /* Hazard Stripe Accent */
+    .hazard-stripe {
+      background: repeating-linear-gradient(
+        -45deg,
+        #F59E0B,
+        #F59E0B 10px,
+        #0F172A 10px,
+        #0F172A 20px
+      );
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0F172A;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #334155;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #F59E0B;
+    }
+
+    /* Subtle pulse animation for live hotline indicator */
+    @keyframes pulse-ring {
+      0% { transform: scale(0.8); opacity: 0.8; }
+      100% { transform: scale(2.2); opacity: 0; }
+    }
+    .pulse-dot::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 9999px;
+      background-color: #F59E0B;
+      animation: pulse-ring 1.8s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+    }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans antialiased selection:bg-amber-500 selection:text-slate-950">
+
+  <!-- TOP UTILITY BAR -->
+  <div class="bg-slate-950 text-slate-300 text-xs border-b border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2 flex flex-col md:flex-row justify-between items-center gap-2">
+      <!-- Certifications & B-BBEE Badge -->
+      <div class="flex flex-wrap items-center justify-center md:justify-start gap-3">
+        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded bg-amber-500/15 text-amber-400 border border-amber-500/30 font-semibold tracking-wide">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          B-BBEE LEVEL 1 CONTRIBUTOR
+        </span>
+        <span class="hidden sm:inline text-slate-600">|</span>
+        <span class="text-slate-400 font-medium">ISO 9001:2015 &bull; ISO 14001:2015 &bull; ISO 45001:2018 &bull; ISO 3834-2</span>
+      </div>
+
+      <!-- 24/7 Emergency Shutdown Hotline -->
+      <div class="flex items-center gap-4">
+        <a href="#contact" class="inline-flex items-center gap-2 text-white hover:text-amber-400 transition font-medium">
+          <span class="relative flex h-2.5 w-2.5 pulse-dot">
+            <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-amber-500"></span>
+          </span>
+          <span class="uppercase tracking-wider text-[11px] text-slate-400">24/7 Rapid Shutdown Desk:</span>
+          <span class="font-display font-bold text-sm text-amber-400 tracking-wide">+27 (0) 17 634 8900</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- STICKY MAIN NAVIGATION -->
+  <header class="sticky top-0 z-40 bg-slate-900/95 backdrop-blur-md border-b border-slate-800 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-20">
+        <!-- Corporate Logo -->
+        <a href="#" class="flex items-center gap-3 group">
+          <div class="w-11 h-11 rounded-lg bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-md shadow-amber-500/20 group-hover:scale-105 transition">
+            <!-- Custom Industrial Hex-Gear V SVG Icon -->
+            <svg class="w-7 h-7 text-slate-950" viewBox="0 0 32 32" fill="none">
+              <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="2.5"/>
+              <path d="M10 11L16 22L22 11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="16" cy="10" r="2" fill="currentColor"/>
+            </svg>
+          </div>
+          <div>
+            <span class="font-display font-bold text-2xl tracking-wider text-white block leading-none">VEXTA</span>
+            <span class="text-[10px] font-semibold tracking-[0.22em] text-amber-400 uppercase block mt-0.5">Industrial Solutions</span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav Links -->
+        <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-slate-300">
+          <a href="#about" class="hover:text-amber-400 transition py-2">About Us</a>
+          <a href="#capabilities" class="hover:text-amber-400 transition py-2">Core Capabilities</a>
+          <a href="#sectors" class="hover:text-amber-400 transition py-2">Sectors</a>
+          <a href="#hse" class="hover:text-amber-400 transition py-2">Zero-Harm HSE</a>
+          <a href="#projects" class="hover:text-amber-400 transition py-2">Track Record</a>
+        </nav>
+
+        <!-- Action CTA + Mobile Hamburger -->
+        <div class="flex items-center gap-3">
+          <a href="#contact" class="hidden sm:inline-flex items-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold uppercase tracking-wider text-sm px-5 py-2.5 rounded-lg shadow-md shadow-amber-500/20 transition">
+            <span>Tender Inquiry</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+          </a>
+          <button id="mobile-menu-btn" type="button" aria-label="Toggle Menu" class="lg:hidden p-2.5 rounded-lg text-slate-300 hover:text-white hover:bg-slate-800 border border-slate-700 transition">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Navigation Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-slate-900 border-t border-slate-800 px-4 pt-3 pb-6 space-y-2">
+      <a href="#about" class="block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">About Vexta</a>
+      <a href="#capabilities" class="block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Core Capabilities</a>
+      <a href="#sectors" class="block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Industry Sectors</a>
+      <a href="#hse" class="block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Zero-Harm HSE & Quality</a>
+      <a href="#projects" class="block px-3 py-2.5 rounded-lg text-slate-200 hover:bg-slate-800 hover:text-amber-400 font-medium">Project Track Record</a>
+      <div class="pt-2">
+        <a href="#contact" class="block text-center bg-amber-500 text-slate-950 font-display font-bold uppercase tracking-wider py-3 rounded-lg">Submit Tender / Scope Inquiry</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- HERO SECTION -->
+  <section class="relative bg-slate-900 text-white overflow-hidden blueprint-grid border-b border-slate-800">
+    <!-- Decorative Radial Glows -->
+    <div class="absolute -top-24 -left-24 w-96 h-96 bg-sky-600/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-[32rem] h-[32rem] bg-amber-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-14 pb-16 lg:pt-20 lg:pb-24 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Left Column: Industrial Copy & CTAs -->
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-slate-800/90 border border-slate-700 text-xs font-semibold tracking-wider uppercase text-amber-400">
+            <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+            Sub-Saharan Africa's Multidisciplinary EPC & Turnaround Partner
+          </div>
+
+          <h1 class="font-display font-bold text-4xl sm:text-5xl lg:text-6xl xl:text-[64px] leading-[1.05] tracking-tight uppercase">
+            Precision Engineering. <br />
+            <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 via-amber-500 to-yellow-300">Zero-Harm Execution.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-2xl leading-relaxed">
+            Delivering turnkey Mechanical, Electrical, Instrumentation & Piping (<strong class="text-white">MEIP</strong>), Structural Steel (<strong class="text-white">SMP</strong>), and high-intensity Plant Shutdown & Turnaround (<strong class="text-white">STO</strong>) solutions for Africa’s heaviest petrochemical, mining, and power infrastructure.
+          </p>
+
+          <!-- Dual CTAs -->
+          <div class="flex flex-col sm:flex-row gap-4 pt-2">
+            <a href="#contact" class="inline-flex items-center justify-center gap-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold uppercase tracking-wider text-base px-7 py-4 rounded-xl shadow-lg shadow-amber-500/25 transition">
+              <span>Request a Tender / Consultation</span>
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+            </a>
+            <a href="#capabilities" class="inline-flex items-center justify-center gap-2.5 bg-slate-800/90 hover:bg-slate-800 text-white border border-slate-700 hover:border-slate-500 font-display font-bold uppercase tracking-wider text-base px-7 py-4 rounded-xl transition">
+              <span>Explore Capabilities</span>
+            </a>
+          </div>
+
+          <!-- CIDB / Engineering Credentials Strip -->
+          <div class="pt-4 flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-slate-400 font-medium">
+            <span class="flex items-center gap-1.5"><span class="text-sky-400 font-bold">CIDB 9ME / 9EP</span> Registered</span>
+            <span class="flex items-center gap-1.5"><span class="text-sky-400 font-bold">ASME U / S / R</span> Stamp Compliant</span>
+            <span class="flex items-center gap-1.5"><span class="text-sky-400 font-bold">SAQCC</span> Certified Gas & Pressure</span>
+          </div>
+        </div>
+
+        <!-- Right Column: Custom Architectural/Refinery CAD Schematic SVG Graphic -->
+        <div class="lg:col-span-5">
+          <div class="relative bg-slate-800/60 border border-slate-700/80 rounded-2xl p-6 shadow-2xl backdrop-blur-sm">
+            <div class="flex items-center justify-between border-b border-slate-700 pb-3 mb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-rose-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-amber-500"></span>
+                <span class="w-2.5 h-2.5 rounded-full bg-emerald-500"></span>
+                <span class="text-[11px] font-mono text-slate-400 ml-2">CAD-ISO-9001 // UNIT-400-STO</span>
+              </div>
+              <span class="text-[11px] font-mono text-amber-400 bg-amber-500/10 px-2 py-0.5 rounded border border-amber-500/30">ACTIVE TELEMETRY</span>
+            </div>
+
+            <!-- Custom High-Detail Industrial Plant & Piping Isometric SVG -->
+            <svg viewBox="0 0 460 320" class="w-full h-auto rounded-lg bg-slate-950/80 border border-slate-800 p-2" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Grid lines inside CAD screen -->
+              <g stroke="#1E293B" stroke-width="1">
+                <line x1="0" y1="64" x2="460" y2="64"/>
+                <line x1="0" y1="128" x2="460" y2="128"/>
+                <line x1="0" y1="192" x2="460" y2="192"/>
+                <line x1="0" y1="256" x2="460" y2="256"/>
+                <line x1="92" y1="0" x2="92" y2="320"/>
+                <line x1="184" y1="0" x2="184" y2="320"/>
+                <line x1="276" y1="0" x2="276" y2="320"/>
+                <line x1="368" y1="0" x2="368" y2="320"/>
+              </g>
+
+              <!-- Distillation Fractionator Column -->
+              <rect x="65" y="45" width="44" height="225" rx="22" fill="#1E293B" stroke="#0284C7" stroke-width="2.5"/>
+              <line x1="65" y1="90" x2="109" y2="90" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <line x1="65" y1="135" x2="109" y2="135" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <line x1="65" y1="180" x2="109" y2="180" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <line x1="65" y1="225" x2="109" y2="225" stroke="#38BDF8" stroke-width="1.5" stroke-dasharray="4 3"/>
+              <!-- Column Structural Steel Cage -->
+              <rect x="57" y="75" width="60" height="175" stroke="#64748B" stroke-width="1.2"/>
+              <line x1="57" y1="75" x2="117" y2="135" stroke="#475569" stroke-width="1"/>
+              <line x1="117" y1="75" x2="57" y2="135" stroke="#475569" stroke-width="1"/>
+              <line x1="57" y1="135" x2="117" y2="195" stroke="#475569" stroke-width="1"/>
+              <line x1="117" y1="135" x2="57" y2="195" stroke="#475569" stroke-width="1"/>
+
+              <!-- Secondary Reactor Vessel -->
+              <rect x="175" y="105" width="56" height="165" rx="14" fill="#1E293B" stroke="#F59E0B" stroke-width="2.5"/>
+              <path d="M175 140H231M175 230H231" stroke="#F59E0B" stroke-width="1.5"/>
+              <circle cx="203" cy="185" r="14" stroke="#F59E0B" stroke-width="2"/>
+              <path d="M196 185L201 190L211 180" stroke="#FBBF24" stroke-width="2" stroke-linecap="round"/>
+
+              <!-- High-Pressure Piping Network -->
+              <path d="M87 45V25H203V105" stroke="#F59E0B" stroke-width="3.5" stroke-linejoin="round"/>
+              <path d="M231 155H310V215H365" stroke="#38BDF8" stroke-width="3.5" stroke-linejoin="round"/>
+              <path d="M109 210H155V250H325" stroke="#94A3B8" stroke-width="3" stroke-linejoin="round"/>
+
+              <!-- Heat Exchanger / Storage Sphere -->
+              <circle cx="375" cy="125" r="46" fill="#1E293B" stroke="#0284C7" stroke-width="2.5"/>
+              <ellipse cx="375" cy="125" rx="46" ry="14" stroke="#38BDF8" stroke-width="1.2" stroke-dasharray="3 3"/>
+              <!-- Support Legs -->
+              <line x1="342" y1="158" x2="335" y2="270" stroke="#64748B" stroke-width="3"/>
+              <line x1="408" y1="158" x2="415" y2="270" stroke="#64748B" stroke-width="3"/>
+              <line x1="375" y1="171" x2="375" y2="270" stroke="#64748B" stroke-width="3"/>
+
+              <!-- Valve & Flange Nodes -->
+              <circle cx="203" cy="25" r="5" fill="#F59E0B"/>
+              <circle cx="310" cy="155" r="5" fill="#38BDF8"/>
+              <rect x="262" y="148" width="14" height="14" fill="#0F172A" stroke="#F59E0B" stroke-width="2"/>
+
+              <!-- Ground Foundation Slab -->
+              <rect x="25" y="270" width="410" height="12" rx="2" fill="#334155"/>
+              <line x1="25" y1="286" x2="435" y2="286" stroke="#F59E0B" stroke-width="2" stroke-dasharray="8 6"/>
+
+              <!-- Technical Callout Tags -->
+              <text x="125" y="18" fill="#FBBF24" font-family="monospace" font-size="10" font-weight="bold">OVERHEAD VAPOR LINE 24"-CS</text>
+              <text x="295" y="65" fill="#38BDF8" font-family="monospace" font-size="10">HORTON SPHERE V-402</text>
+              <text x="35" y="305" fill="#94A3B8" font-family="monospace" font-size="10">CRITICAL PATH: 18 DAYS // WELD NDT PASS: 99.8%</text>
+            </svg>
+
+            <!-- Live Turnaround Status Mini Cards -->
+            <div class="grid grid-cols-3 gap-3 mt-4">
+              <div class="bg-slate-900/90 border border-slate-700/70 rounded-xl p-3">
+                <div class="text-[11px] text-slate-400 uppercase font-semibold">NDT Weld Pass</div>
+                <div class="font-display font-bold text-xl text-emerald-400 mt-0.5">99.82%</div>
+              </div>
+              <div class="bg-slate-900/90 border border-slate-700/70 rounded-xl p-3">
+                <div class="text-[11px] text-slate-400 uppercase font-semibold">Schedule Index</div>
+                <div class="font-display font-bold text-xl text-amber-400 mt-0.5">1.04 SPI</div>
+              </div>
+              <div class="bg-slate-900/90 border border-slate-700/70 rounded-xl p-3">
+                <div class="text-[11px] text-slate-400 uppercase font-semibold">Active Crews</div>
+                <div class="font-display font-bold text-xl text-sky-400 mt-0.5">42 Teams</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- KEY METRICS TICKER BAR -->
+    <div class="bg-slate-950/90 border-t border-slate-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-7">
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+          <div class="border-l-4 border-amber-500 pl-4">
+            <div class="font-display font-bold text-3xl sm:text-4xl text-white">
+              <span class="counter" data-target="14.5" data-decimals="1">0</span>M+
+            </div>
+            <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Lost-Time Injury (LTI) Free Hours</div>
+          </div>
+
+          <div class="border-l-4 border-sky-500 pl-4">
+            <div class="font-display font-bold text-3xl sm:text-4xl text-white">
+              <span class="counter" data-target="99.4" data-decimals="1">0</span>%
+            </div>
+            <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">On-Schedule Turnaround Delivery</div>
+          </div>
+
+          <div class="border-l-4 border-amber-500 pl-4">
+            <div class="font-display font-bold text-3xl sm:text-4xl text-white">
+              <span class="counter" data-target="1850" data-decimals="0">0</span>+
+            </div>
+            <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">Coded Welders, Artisans & Engineers</div>
+          </div>
+
+          <div class="border-l-4 border-emerald-500 pl-4">
+            <div class="font-display font-bold text-3xl sm:text-4xl text-white">
+              Level <span class="counter" data-target="1" data-decimals="0">0</span>
+            </div>
+            <div class="text-xs sm:text-sm text-slate-400 font-medium mt-1">B-BBEE Contributor (51%+ Black Owned)</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT & INDUSTRIAL HERITAGE SECTION -->
+  <section id="about" class="py-20 bg-white blueprint-grid-light border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700">
+            <span class="w-8 h-0.5 bg-amber-500"></span>
+            Who We Are
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 uppercase leading-tight">
+            Engineered for High-Consequence Industrial Environments
+          </h2>
+          <p class="text-slate-600 text-base sm:text-lg leading-relaxed">
+            Headquartered in Secunda with major operational hubs in Johannesburg, Richards Bay, and Rustenburg, <strong class="text-slate-900">Vexta Industrial Solutions (Pty) Ltd</strong> bridges complex engineering design with disciplined heavy field execution.
+          </p>
+          <p class="text-slate-600 leading-relaxed">
+            Whether executing a 24/7 critical-path refinery shutdown under tight flare-to-flare windows or erecting structural steel and high-pressure alloy piping for greenfield mineral concentrators, our integrated self-perform model eliminates subcontractor interfaces and protects asset uptime.
+          </p>
+
+          <!-- Value Pillars -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <div class="font-display font-bold text-lg text-slate-900 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-amber-500"></span>
+                100% Self-Perform Workforce
+              </div>
+              <p class="text-sm text-slate-600 mt-1">In-house coded TIG/MIG/SMAW welders, pipefitters, riggers, millwrights, and EC&I technicians.</p>
+            </div>
+            <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+              <div class="font-display font-bold text-lg text-slate-900 flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-sm bg-sky-600"></span>
+                Digital Workpack Control
+              </div>
+              <p class="text-sm text-slate-600 mt-1">Real-time Primavera P6 scheduling, QCP digital sign-offs, and flange-management traceability.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Visual Card: Core Operational Footprint -->
+        <div class="lg:col-span-6">
+          <div class="bg-slate-900 text-white rounded-2xl p-8 shadow-xl relative overflow-hidden">
+            <div class="h-1.5 w-full hazard-stripe absolute top-0 left-0"></div>
+            <h3 class="font-display font-bold text-2xl uppercase tracking-wide text-amber-400 mb-6">
+              Integrated Project Delivery Model
+            </h3>
+
+            <div class="space-y-5">
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-display font-bold text-amber-400 shrink-0">01</div>
+                <div>
+                  <h4 class="font-display font-bold text-lg uppercase">Front-End Planning & Constructability</h4>
+                  <p class="text-sm text-slate-400 mt-0.5">3D laser scanning, isometric spooling, critical path method (CPM) modeling, and pre-shutdown scoping.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-display font-bold text-amber-400 shrink-0">02</div>
+                <div>
+                  <h4 class="font-display font-bold text-lg uppercase">Off-Site Modular & Spool Fabrication</h4>
+                  <p class="text-sm text-slate-400 mt-0.5">18,000m&sup2; segregated carbon & exotic alloy (Duplex, Inconel, Cr-Mo) workshops in Mpumalanga & Gauteng.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-display font-bold text-amber-400 shrink-0">03</div>
+                <div>
+                  <h4 class="font-display font-bold text-lg uppercase">Site Erection, Heavy Rigging & Tie-Ins</h4>
+                  <p class="text-sm text-slate-400 mt-0.5">Synchronized MEIP & SMP execution with controlled hydraulic torque/tensioning and hydro-testing.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center font-display font-bold text-amber-400 shrink-0">04</div>
+                <div>
+                  <h4 class="font-display font-bold text-lg uppercase">Pre-Commissioning & Handover</h4>
+                  <p class="text-sm text-slate-400 mt-0.5">Loop checks, cold/hot commissioning support, and complete electronic data books (EDB) on schedule.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE CAPABILITIES (FILTERABLE GRID + TECHNICAL SCOPE MODAL) -->
+  <section id="capabilities" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 mb-2">
+            <span class="w-8 h-0.5 bg-amber-500"></span>
+            Multidisciplinary Engineering & Contracting
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 uppercase">
+            Core Operational Capabilities
+          </h2>
+        </div>
+
+        <!-- Discipline Filter Buttons -->
+        <div class="flex flex-wrap gap-2" id="capability-filters">
+          <button data-filter="all" class="cap-filter-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-900 text-amber-400 border border-slate-900 transition">
+            All Disciplines
+          </button>
+          <button data-filter="sto" class="cap-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            Turnarounds (STO)
+          </button>
+          <button data-filter="smp" class="cap-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            Mechanical & Piping
+          </button>
+          <button data-filter="eci" class="cap-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            EC&I
+          </button>
+        </div>
+      </div>
+
+      <!-- Capabilities Cards Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7" id="capabilities-grid">
+        <!-- Card 1: STO -->
+        <article data-category="sto" class="cap-card bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/60 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">DIV-01 // STO</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-slate-900 uppercase mb-2">
+              Shutdowns, Turnarounds & Outages (STO)
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+              High-density, round-the-clock execution of major refinery, synfuels, smelter, and boiler outages with strict earned-value tracking.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 border-t border-slate-100 pt-4 mb-6">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Heat exchanger bundle pulling & retubing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Distillation column tray & internals revamp</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Critical-path valve & relief device overhauls</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-sky-700">KPI: &lt;0.5% Rework Rate</span>
+            <button type="button" onclick="openScopeModal('sto')" class="inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-slate-900 hover:text-amber-600 transition">
+              <span>View Technical Scope</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 2: SMP -->
+        <article data-category="smp" class="cap-card bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/60 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"/></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">DIV-02 // SMP</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-slate-900 uppercase mb-2">
+              Mechanical, Piping & Structural Steel (SMP)
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+              Heavy structural erection, rotating equipment alignment, and high-pressure process piping across carbon, stainless, and chrome-moly grades.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 border-t border-slate-100 pt-4 mb-6">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>ASME B31.3 / B31.1 high-pressure piping</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Pipe racks, conveyors & heavy platework</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Laser shaft alignment for turbines & pumps</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-sky-700">KPI: 99.8% RT/UT Weld Pass</span>
+            <button type="button" onclick="openScopeModal('smp')" class="inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-slate-900 hover:text-amber-600 transition">
+              <span>View Technical Scope</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 3: EC&I -->
+        <article data-category="eci" class="cap-card bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/60 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">DIV-03 // EC&I</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-slate-900 uppercase mb-2">
+              Electrical, Control & Instrumentation (EC&I)
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+              End-to-end MV/LV reticulation, hazardous area (Ex) installations, DCS/PLC marshalling, and precision process instrumentation.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 border-t border-slate-100 pt-4 mb-6">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Substations, MCCs, VSDs & MV cable jointing</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>SANS 10108 / IECEx hazardous zone compliance</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>DCS/SIS migration, impulse tubing & calibration</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-sky-700">KPI: Zero Ex-Audit Non-Conformances</span>
+            <button type="button" onclick="openScopeModal('eci')" class="inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-slate-900 hover:text-amber-600 transition">
+              <span>View Technical Scope</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 4: Maintenance & Asset Integrity -->
+        <article data-category="sto smp" class="cap-card bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/60 transition flex flex-col justify-between group">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+              </div>
+              <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">DIV-04 // MRO</span>
+            </div>
+            <h3 class="font-display font-bold text-2xl text-slate-900 uppercase mb-2">
+              Industrial Maintenance & Asset Integrity
+            </h3>
+            <p class="text-slate-600 text-sm leading-relaxed mb-5">
+              Multi-year term maintenance contracts, statutory pressure vessel inspections (PER), and corrosion-under-insulation (CUI) remediation.
+            </p>
+            <ul class="space-y-2 text-sm text-slate-700 border-t border-slate-100 pt-4 mb-6">
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Embedded site maintenance & reliability teams</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>API 653 storage tank jacking & floor replacement</li>
+              <li class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Composite pipe wrapping & online leak sealing</li>
+            </ul>
+          </div>
+          <div class="pt-4 border-t border-slate-100 flex items-center justify-between">
+            <span class="text-xs font-bold text-sky-700">KPI: +4.2% Mean Time Between Failure</span>
+            <button type="button" onclick="openScopeModal('mro')" class="inline-flex items-center gap-1.5 text-xs font-display font-bold uppercase tracking-wider text-slate-900 hover:text-amber-600 transition">
+              <span>View Technical Scope</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+            </button>
+          </div>
+        </article>
+
+        <!-- Card 5: Capital Projects & Modular Fabrication -->
+        <article data-category="smp eci" class="cap-card bg-white rounded-2xl border border-slate-200 p-7 shadow-sm hover:shadow-xl hover:border-amber-500/60 transition flex flex-col justify-between group md:col-span-2 lg:col-span-2">
+          <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
+            <div class="lg:col-span-8">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded-xl bg-slate-900 text-amber-400 flex items-center justify-center group-hover:bg-amber-500 group-hover:text-slate-950 transition">
+                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>
+                </div>
+                <div>
+                  <span class="text-xs font-mono font-bold text-slate-500 bg-slate-100 px-2.5 py-1 rounded">DIV-05 // EPC & MODULAR</span>
+                  <h3 class="font-display font-bold text-2xl text-slate-900 uppercase mt-1">
+                    Capital Projects & Modular Skid Fabrication
+                  </h3>
+                </div>
+              </div>
+              <p class="text-slate-600 text-sm leading-relaxed mb-4">
+                Turnkey brownfield expansions and greenfield process modules fabricated off-site to de-risk site man-hours, complete with integrated piping, instrumentation, pre-wired E-houses, and factory acceptance testing (FAT).
+              </p>
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-sm text-slate-700">
+                <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Pre-assembled pipe rack (PAR) & process skids</div>
+                <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Containerized substations & E-House integration</div>
+                <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Heavy civil plinths, bunds & structural steel</div>
+                <div class="flex items-center gap-2"><span class="w-1.5 h-1.5 rounded-full bg-amber-500"></span>Full cold & hot commissioning handover</div>
+              </div>
+            </div>
+
+            <div class="lg:col-span-4 bg-slate-900 text-white rounded-xl p-5 border border-slate-800 space-y-3">
+              <div class="text-xs font-mono text-amber-400 uppercase">Workshop Capacity</div>
+              <div class="font-display font-bold text-3xl">650 Tons / Mo</div>
+              <p class="text-xs text-slate-400">Combined structural steel & pressure piping spool output across Secunda & Wadeville facilities.</p>
+              <button type="button" onclick="openScopeModal('epc')" class="w-full mt-2 inline-flex items-center justify-center gap-2 bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold uppercase tracking-wider text-xs py-2.5 px-4 rounded-lg transition">
+                <span>View Technical Scope</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+              </button>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE INDUSTRY SECTORS SERVED -->
+  <section id="sectors" class="py-20 bg-white border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="max-w-3xl mb-12">
+        <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 mb-2">
+          <span class="w-8 h-0.5 bg-amber-500"></span>
+          Vertical Market Expertise
+        </div>
+        <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 uppercase">
+          Core Industrial Sectors Served
+        </h2>
+        <p class="text-slate-600 mt-3 text-base sm:text-lg">
+          Select a sector below to inspect Vexta’s specialized plant capabilities, regulatory compliance standards, and typical asset environments across Southern Africa.
         </p>
+      </div>
 
-    </body>
+      <!-- Sector Selector Tabs -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-3 mb-8" id="sector-tabs">
+        <button type="button" data-sector="petrochem" class="sector-tab active text-left p-4 rounded-xl border-2 border-amber-500 bg-slate-900 text-white shadow-md transition">
+          <div class="text-[11px] font-mono text-amber-400 uppercase">Sector 01</div>
+          <div class="font-display font-bold text-lg sm:text-xl uppercase mt-0.5">Petrochemical & Refining</div>
+        </button>
+
+        <button type="button" data-sector="mining" class="sector-tab text-left p-4 rounded-xl border-2 border-slate-200 bg-slate-50 hover:border-slate-400 text-slate-900 transition">
+          <div class="text-[11px] font-mono text-slate-500 uppercase">Sector 02</div>
+          <div class="font-display font-bold text-lg sm:text-xl uppercase mt-0.5">Mining & Beneficiation</div>
+        </button>
+
+        <button type="button" data-sector="power" class="sector-tab text-left p-4 rounded-xl border-2 border-slate-200 bg-slate-50 hover:border-slate-400 text-slate-900 transition">
+          <div class="text-[11px] font-mono text-slate-500 uppercase">Sector 03</div>
+          <div class="font-display font-bold text-lg sm:text-xl uppercase mt-0.5">Power & Renewables</div>
+        </button>
+
+        <button type="button" data-sector="manufacturing" class="sector-tab text-left p-4 rounded-xl border-2 border-slate-200 bg-slate-50 hover:border-slate-400 text-slate-900 transition">
+          <div class="text-[11px] font-mono text-slate-500 uppercase">Sector 04</div>
+          <div class="font-display font-bold text-lg sm:text-xl uppercase mt-0.5">Pulp, Paper & Heavy Mfg</div>
+        </button>
+      </div>
+
+      <!-- Dynamic Sector Detail Panel -->
+      <div id="sector-panel" class="bg-slate-900 text-white rounded-2xl border border-slate-800 p-6 sm:p-10 shadow-xl blueprint-grid">
+        <!-- Populated via JS on load & tab click -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ZERO-HARM HSE & QUALITY ASSURANCE DARK BANNER -->
+  <section id="hse" class="py-20 bg-slate-950 text-white relative overflow-hidden border-b border-slate-800">
+    <div class="h-2 w-full hazard-stripe absolute top-0 left-0"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-7 space-y-6">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded bg-emerald-500/15 border border-emerald-500/30 text-emerald-400 text-xs font-bold uppercase tracking-wider">
+            Zero Harm Is Non-Negotiable
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl uppercase leading-tight">
+            Visible Felt Leadership & <span class="text-amber-400">Digital QA/QC Traceability</span>
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+            In volatile hydrocarbon, high-voltage, and heavy rigging environments, safety and quality are engineered into every task before a single spanner turns. Every Vexta artisan holds absolute stop-work authority.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-2">
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+              <div class="font-display font-bold text-3xl text-emerald-400">&lt; 0.12</div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-300 mt-1">Total Recordable Injury Rate (TRIR)</div>
+              <p class="text-xs text-slate-500 mt-1">Benchmarked against global Tier-1 EPC contractors.</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+              <div class="font-display font-bold text-3xl text-amber-400">100%</div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-300 mt-1">Digital Weld & Flange Mapping</div>
+              <p class="text-xs text-slate-500 mt-1">QR-coded joint history from WPS/PQR to hydro-test.</p>
+            </div>
+
+            <div class="bg-slate-900 border border-slate-800 rounded-xl p-5">
+              <div class="font-display font-bold text-3xl text-sky-400">ISO 45001</div>
+              <div class="text-xs font-bold uppercase tracking-wider text-slate-300 mt-1">Integrated HSE Management</div>
+              <p class="text-xs text-slate-500 mt-1">Audited annually by TÜV Rheinland & NOSA 5-Star rated.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Quality & Safety Control Pillars -->
+        <div class="lg:col-span-5 bg-slate-900/90 border border-slate-800 rounded-2xl p-7 space-y-5">
+          <h3 class="font-display font-bold text-xl uppercase text-white border-b border-slate-800 pb-3">
+            Field Governance & Compliance Systems
+          </h3>
+          <div class="space-y-4 text-sm">
+            <div class="flex gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 font-bold">&#10003;</div>
+              <div>
+                <div class="font-bold text-white">Electronic Permit-to-Work (e-PTW) & LOTO</div>
+                <p class="text-slate-400 text-xs mt-0.5">Strict energy isolation verification and confined-space gas monitoring protocols.</p>
+              </div>
+            </div>
+            <div class="flex gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 font-bold">&#10003;</div>
+              <div>
+                <div class="font-bold text-white">ISO 3834-2 Comprehensive Welding Quality</div>
+                <p class="text-slate-400 text-xs mt-0.5">Full PMI (Positive Material Identification), PWHT, Phased Array UT & Radiography.</p>
+              </div>
+            </div>
+            <div class="flex gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 font-bold">&#10003;</div>
+              <div>
+                <div class="font-bold text-white">Controlled Bolting & Joint Integrity</div>
+                <p class="text-slate-400 text-xs mt-0.5">ASME PCC-1 certified flange assembly ensuring zero hydrocarbon leaks at start-up.</p>
+              </div>
+            </div>
+            <div class="flex gap-3.5">
+              <div class="w-8 h-8 rounded-lg bg-amber-500/15 text-amber-400 flex items-center justify-center shrink-0 font-bold">&#10003;</div>
+              <div>
+                <div class="font-bold text-white">Critical Lift Rigging Engineering</div>
+                <p class="text-slate-400 text-xs mt-0.5">3D crane load-path simulations and certified rigging studies for tandem heavy lifts.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURED TRACK RECORD / CASE STUDIES -->
+  <section id="projects" class="py-20 bg-slate-50 border-b border-slate-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+        <div>
+          <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 mb-2">
+            <span class="w-8 h-0.5 bg-amber-500"></span>
+            Proven Execution Across Sub-Saharan Africa
+          </div>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl lg:text-5xl text-slate-900 uppercase">
+            Selected Project Track Record
+          </h2>
+        </div>
+
+        <!-- Project Filter Buttons -->
+        <div class="flex flex-wrap gap-2">
+          <button type="button" data-proj-filter="all" class="proj-filter-btn active px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-slate-900 text-amber-400 border border-slate-900 transition">
+            All Projects
+          </button>
+          <button type="button" data-proj-filter="petrochem" class="proj-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            Petrochemical
+          </button>
+          <button type="button" data-proj-filter="mining" class="proj-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            Mining
+          </button>
+          <button type="button" data-proj-filter="power" class="proj-filter-btn px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-wider bg-white text-slate-700 border border-slate-300 hover:border-slate-900 transition">
+            Power & Marine
+          </button>
+        </div>
+      </div>
+
+      <!-- Case Studies Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8" id="projects-grid">
+        <!-- Project 1 -->
+        <div data-proj-sector="petrochem" class="proj-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <!-- Custom SVG Architectural Banner -->
+            <div class="h-40 bg-slate-900 relative overflow-hidden p-5 flex flex-col justify-between blueprint-grid">
+              <div class="flex justify-between items-start z-10">
+                <span class="px-2.5 py-1 rounded bg-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider">Petrochemical // STO</span>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs">ZERO LTI</span>
+              </div>
+              <div class="z-10">
+                <div class="text-xs font-mono text-slate-400">SECUNDA, MPUMALANGA</div>
+                <h3 class="font-display font-bold text-2xl text-white uppercase">Synfuels Crude & Rectisol Unit Turnaround</h3>
+              </div>
+              <!-- Subtle Geometric Piping Accent -->
+              <svg class="absolute right-0 bottom-0 w-48 h-32 opacity-20 text-amber-400" viewBox="0 0 200 120" fill="none">
+                <circle cx="150" cy="60" r="45" stroke="currentColor" stroke-width="4"/>
+                <path d="M20 90H110V30H180" stroke="currentColor" stroke-width="5"/>
+              </svg>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Executed mechanical, alloy piping, exchanger bundle extraction, and valve refurbishment scope across 24/7 double-shift operations during a major statutory plant outage.
+              </p>
+              <div class="grid grid-cols-3 gap-3 bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 text-center">
+                <div>
+                  <div class="font-display font-bold text-xl text-slate-900">410,000</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Man-Hours</div>
+                </div>
+                <div class="border-x border-slate-200">
+                  <div class="font-display font-bold text-xl text-sky-700">21 Days</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">2 Days Early</div>
+                </div>
+                <div>
+                  <div class="font-display font-bold text-xl text-emerald-600">1,420</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Alloy Welds</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500 font-medium">
+            <span>Scope: MEIP, Exchangers & Controlled Bolting</span>
+            <span class="font-mono text-slate-700">REF: VXT-SEC-2025</span>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div data-proj-sector="mining" class="proj-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="h-40 bg-slate-900 relative overflow-hidden p-5 flex flex-col justify-between blueprint-grid">
+              <div class="flex justify-between items-start z-10">
+                <span class="px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider">Mining & Minerals // SMP</span>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs">ZERO LTI</span>
+              </div>
+              <div class="z-10">
+                <div class="text-xs font-mono text-slate-400">STEELPOORT, LIMPOPO</div>
+                <h3 class="font-display font-bold text-2xl text-white uppercase">PGM Concentrator Mill & Flotation Expansion</h3>
+              </div>
+              <svg class="absolute right-0 bottom-0 w-48 h-32 opacity-20 text-sky-400" viewBox="0 0 200 120" fill="none">
+                <polygon points="120,15 185,105 55,105" stroke="currentColor" stroke-width="4"/>
+                <line x1="20" y1="60" x2="180" y2="60" stroke="currentColor" stroke-width="3"/>
+              </svg>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Fabrication and site erection of 2,850 tons of heavy structural steel, primary ball mill mechanical installation, slurry piping, and 11kV substation reticulation.
+              </p>
+              <div class="grid grid-cols-3 gap-3 bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 text-center">
+                <div>
+                  <div class="font-display font-bold text-xl text-slate-900">685,000</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Man-Hours</div>
+                </div>
+                <div class="border-x border-slate-200">
+                  <div class="font-display font-bold text-xl text-sky-700">2,850 t</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Steel Erected</div>
+                </div>
+                <div>
+                  <div class="font-display font-bold text-xl text-emerald-600">100%</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">On-Budget</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500 font-medium">
+            <span>Scope: Structural Steel, Mill Mechanical & EC&I</span>
+            <span class="font-mono text-slate-700">REF: VXT-LIM-2025</span>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div data-proj-sector="power" class="proj-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="h-40 bg-slate-900 relative overflow-hidden p-5 flex flex-col justify-between blueprint-grid">
+              <div class="flex justify-between items-start z-10">
+                <span class="px-2.5 py-1 rounded bg-amber-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider">Power Generation // Outage</span>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs">ZERO LTI</span>
+              </div>
+              <div class="z-10">
+                <div class="text-xs font-mono text-slate-400">EMALAHLENI, MPUMALANGA</div>
+                <h3 class="font-display font-bold text-2xl text-white uppercase">600MW Boiler Superheater & HP Piping Outage</h3>
+              </div>
+              <svg class="absolute right-0 bottom-0 w-48 h-32 opacity-20 text-amber-400" viewBox="0 0 200 120" fill="none">
+                <path d="M110 10L65 65H105L90 110L145 50H105L110 10Z" stroke="currentColor" stroke-width="4"/>
+              </svg>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                High-pressure P91 chrome-moly boiler tube bank replacement, induced-draft fan rotor overhaul, and turbine control instrumentation loop calibration.
+              </p>
+              <div class="grid grid-cols-3 gap-3 bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 text-center">
+                <div>
+                  <div class="font-display font-bold text-xl text-slate-900">290,000</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Man-Hours</div>
+                </div>
+                <div class="border-x border-slate-200">
+                  <div class="font-display font-bold text-xl text-sky-700">99.9%</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">P91 NDT Pass</div>
+                </div>
+                <div>
+                  <div class="font-display font-bold text-xl text-emerald-600">34 Days</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Synchronized</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500 font-medium">
+            <span>Scope: Boiler Pressure Parts, Rotating & C&I</span>
+            <span class="font-mono text-slate-700">REF: VXT-PWR-2024</span>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div data-proj-sector="power petrochem" class="proj-card bg-white rounded-2xl border border-slate-200 overflow-hidden shadow-sm hover:shadow-xl transition flex flex-col justify-between">
+          <div>
+            <div class="h-40 bg-slate-900 relative overflow-hidden p-5 flex flex-col justify-between blueprint-grid">
+              <div class="flex justify-between items-start z-10">
+                <span class="px-2.5 py-1 rounded bg-sky-500 text-slate-950 font-display font-bold text-xs uppercase tracking-wider">Bulk Terminals // Piping</span>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-mono text-xs">ZERO LTI</span>
+              </div>
+              <div class="z-10">
+                <div class="text-xs font-mono text-slate-400">RICHARDS BAY, KWAZULU-NATAL</div>
+                <h3 class="font-display font-bold text-2xl text-white uppercase">Port Tank Terminal Manifold & Firewater Upgrade</h3>
+              </div>
+              <svg class="absolute right-0 bottom-0 w-48 h-32 opacity-20 text-sky-400" viewBox="0 0 200 120" fill="none">
+                <rect x="70" y="25" width="90" height="75" rx="8" stroke="currentColor" stroke-width="4"/>
+                <line x1="20" y1="80" x2="70" y2="80" stroke="currentColor" stroke-width="4"/>
+              </svg>
+            </div>
+
+            <div class="p-6 space-y-4">
+              <p class="text-sm text-slate-600 leading-relaxed">
+                Turnkey fabrication and installation of 4.6 km of marine-coated carbon and Duplex stainless steel transfer lines, automated custody-transfer metering skids, and deluge systems.
+              </p>
+              <div class="grid grid-cols-3 gap-3 bg-slate-50 border border-slate-200/80 rounded-xl p-3.5 text-center">
+                <div>
+                  <div class="font-display font-bold text-xl text-slate-900">195,000</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Man-Hours</div>
+                </div>
+                <div class="border-x border-slate-200">
+                  <div class="font-display font-bold text-xl text-sky-700">4,600 m</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Piping Installed</div>
+                </div>
+                <div>
+                  <div class="font-display font-bold text-xl text-emerald-600">API 650</div>
+                  <div class="text-[11px] text-slate-500 uppercase font-semibold">Full Compliance</div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-6 py-3.5 bg-slate-50 border-t border-slate-100 flex justify-between items-center text-xs text-slate-500 font-medium">
+            <span>Scope: Piping, Metering Skids & Fire Systems</span>
+            <span class="font-mono text-slate-700">REF: VXT-RBY-2024</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE TENDER / PROJECT SCOPE ESTIMATOR & REGIONAL OFFICES -->
+  <section id="contact" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        <!-- Left Column: Interactive Tender / Scope Estimator Form -->
+        <div class="lg:col-span-7">
+          <div class="bg-slate-50 border border-slate-200 rounded-2xl p-6 sm:p-10 shadow-sm">
+            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 mb-2">
+              <span class="w-8 h-0.5 bg-amber-500"></span>
+              Commercial & Estimating Desk
+            </div>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-slate-900 uppercase">
+              Project Scope & Tender Inquiry
+            </h2>
+            <p class="text-slate-600 text-sm sm:text-base mt-2 mb-6">
+              Configure your project parameters below for rapid assignment to our specialized estimating engineers or 24/7 shutdown mobilization team.
+            </p>
+
+            <form id="tender-form" class="space-y-5">
+              <!-- Project Type Selector -->
+              <div>
+                <label class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-2">1. Select Engagement Type *</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  <label class="cursor-pointer">
+                    <input type="radio" name="projectType" value="Planned Shutdown / Turnaround (STO)" class="peer sr-only" checked />
+                    <div class="p-3.5 rounded-xl border-2 border-slate-200 bg-white peer-checked:border-amber-500 peer-checked:bg-amber-500/10 transition">
+                      <div class="font-display font-bold text-base text-slate-900 uppercase">Planned Shutdown (STO)</div>
+                      <div class="text-xs text-slate-500">Scheduled plant outage & tie-ins</div>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="projectType" value="Emergency Breakdown / Rapid Mobilization" class="peer sr-only" />
+                    <div class="p-3.5 rounded-xl border-2 border-slate-200 bg-white peer-checked:border-rose-500 peer-checked:bg-rose-500/10 transition">
+                      <div class="font-display font-bold text-base text-slate-900 uppercase">Emergency Breakdown</div>
+                      <div class="text-xs text-slate-500">24/7 immediate crew deployment</div>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="projectType" value="Capital Construction / SMP & MEIP" class="peer sr-only" />
+                    <div class="p-3.5 rounded-xl border-2 border-slate-200 bg-white peer-checked:border-amber-500 peer-checked:bg-amber-500/10 transition">
+                      <div class="font-display font-bold text-base text-slate-900 uppercase">Capital Construction</div>
+                      <div class="text-xs text-slate-500">Brownfield/greenfield SMP & MEIP</div>
+                    </div>
+                  </label>
+                  <label class="cursor-pointer">
+                    <input type="radio" name="projectType" value="Ongoing Term Maintenance Contract" class="peer sr-only" />
+                    <div class="p-3.5 rounded-xl border-2 border-slate-200 bg-white peer-checked:border-amber-500 peer-checked:bg-amber-500/10 transition">
+                      <div class="font-display font-bold text-base text-slate-900 uppercase">Ongoing Maintenance</div>
+                      <div class="text-xs text-slate-500">Embedded site MRO & asset integrity</div>
+                    </div>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Sector & Scale Row -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="sectorSelect" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">2. Industry Sector *</label>
+                  <select id="sectorSelect" required class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none">
+                    <option value="Petrochemical & Refining">Petrochemical, Synfuels & Refining</option>
+                    <option value="Mining & Mineral Processing">Mining, Smelting & Beneficiation</option>
+                    <option value="Power Generation & Renewables">Power Generation & Energy</option>
+                    <option value="Pulp, Paper & Heavy Manufacturing">Pulp, Paper & Heavy Manufacturing</option>
+                    <option value="Marine & Bulk Liquid Terminals">Marine & Bulk Liquid Terminals</option>
+                  </select>
+                </div>
+
+                <div>
+                  <label for="workforceScale" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">3. Estimated Workforce / Scale *</label>
+                  <select id="workforceScale" required class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none">
+                    <option value="Rapid Crew (10 - 40 Artisans)">Rapid Crew (10 – 40 Artisans)</option>
+                    <option value="Mid-Scale Project (40 - 150 Personnel)" selected>Mid-Scale Project (40 – 150 Personnel)</option>
+                    <option value="Major Turnaround / EPC (150 - 500+ Personnel)">Major Turnaround / EPC (150 – 500+ Personnel)</option>
+                    <option value="Off-Site Workshop Fabrication Only">Off-Site Workshop Fabrication Only</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Contact Details -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contactName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Full Name & Title *</label>
+                  <input type="text" id="contactName" required placeholder="e.g. Thabo Mokoena, Turnaround Manager" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="companyName" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Company / Asset Owner *</label>
+                  <input type="text" id="companyName" required placeholder="e.g. Sasol / Anglo American / Eskom" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label for="contactEmail" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Corporate Email *</label>
+                  <input type="email" id="contactEmail" required placeholder="name@company.co.za" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none" />
+                </div>
+                <div>
+                  <label for="contactPhone" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Direct / Mobile Number *</label>
+                  <input type="tel" id="contactPhone" required placeholder="+27 (0) 82 000 0000" class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none" />
+                </div>
+              </div>
+
+              <div>
+                <label for="scopeNotes" class="block text-xs font-bold uppercase tracking-wider text-slate-700 mb-1.5">Technical Scope Summary & Target Window</label>
+                <textarea id="scopeNotes" rows="3" placeholder="Briefly describe disciplines required (SMP, Piping, EC&I, Exchangers), site location, and target execution dates..." class="w-full rounded-xl border border-slate-300 bg-white px-4 py-3 text-sm text-slate-900 focus:border-amber-500 focus:outline-none"></textarea>
+              </div>
+
+              <button type="submit" class="w-full bg-slate-900 hover:bg-slate-800 text-amber-400 font-display font-bold uppercase tracking-wider text-base py-4 px-6 rounded-xl shadow-lg transition flex items-center justify-center gap-2.5">
+                <span>Submit Scope to Estimating Desk</span>
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </button>
+            </form>
+
+            <!-- Instant Confirmation Feedback Panel (Hidden by default) -->
+            <div id="tender-confirmation" class="hidden mt-6 bg-emerald-950 text-white border border-emerald-700 rounded-2xl p-6 space-y-3">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500 text-slate-950 flex items-center justify-center font-bold text-lg shrink-0">&#10003;</div>
+                <div>
+                  <h3 class="font-display font-bold text-xl uppercase text-emerald-300">Tender Dossier Logged Successfully</h3>
+                  <p class="text-xs font-mono text-emerald-400" id="ref-number">REF: VXT-RFQ-2026-8841</p>
+                </div>
+              </div>
+              <p class="text-sm text-slate-200 leading-relaxed" id="confirmation-summary"></p>
+              <div class="pt-2">
+                <button type="button" onclick="resetTenderForm()" class="text-xs font-bold uppercase tracking-wider text-amber-400 hover:underline">
+                  + Log Another Project Inquiry
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Regional Operational Hubs -->
+        <div class="lg:col-span-5 space-y-6">
+          <div>
+            <div class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-sky-700 mb-2">
+              <span class="w-8 h-0.5 bg-amber-500"></span>
+              National & Cross-Border Footprint
+            </div>
+            <h3 class="font-display font-bold text-3xl text-slate-900 uppercase">
+              Regional Operational Hubs
+            </h3>
+            <p class="text-slate-600 text-sm mt-1">
+              Strategically positioned adjacent to South Africa’s primary petrochemical, mining, and industrial corridors.
+            </p>
+          </div>
+
+          <div class="space-y-4">
+            <!-- Hub 1: Secunda -->
+            <div class="bg-slate-900 text-white rounded-xl p-5 border-l-4 border-amber-500 shadow-md">
+              <div class="flex justify-between items-start">
+                <div>
+                  <span class="text-[10px] font-mono uppercase tracking-wider text-amber-400">Corporate HQ & Heavy Fabrication</span>
+                  <h4 class="font-display font-bold text-xl uppercase mt-0.5">Secunda — Mpumalanga</h4>
+                </div>
+                <span class="text-xs font-mono text-slate-400">26.5175&deg; S</span>
+              </div>
+              <p class="text-xs text-slate-300 mt-2">Plot 14, Industrial Road, Secunda, 2302 &bull; 12,000m&sup2; Alloy & Carbon Piping Workshop</p>
+              <div class="text-xs font-semibold text-amber-400 mt-2">Tel: +27 (0) 17 634 8900 &bull; tenders@vextaindustrial.co.za</div>
+            </div>
+
+            <!-- Hub 2: Johannesburg -->
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 border-l-4 border-l-sky-600">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">Engineering, EPC & EC&I Hub</span>
+              <h4 class="font-display font-bold text-xl text-slate-900 uppercase mt-0.5">Johannesburg (Wadeville) — Gauteng</h4>
+              <p class="text-xs text-slate-600 mt-2">88 Dekema Road, Wadeville, Germiston, 1422 &bull; Structural Steel & Modular Skid Yard</p>
+              <div class="text-xs font-semibold text-slate-800 mt-2">Tel: +27 (0) 11 824 5100</div>
+            </div>
+
+            <!-- Hub 3: Richards Bay -->
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 border-l-4 border-l-sky-600">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">Coastal, Marine & Smelter Operations</span>
+              <h4 class="font-display font-bold text-xl text-slate-900 uppercase mt-0.5">Richards Bay — KwaZulu-Natal</h4>
+              <p class="text-xs text-slate-600 mt-2">19 Brass Link, Alton Industrial, Richards Bay, 3900</p>
+              <div class="text-xs font-semibold text-slate-800 mt-2">Tel: +27 (0) 35 797 4200</div>
+            </div>
+
+            <!-- Hub 4: Rustenburg -->
+            <div class="bg-slate-50 rounded-xl p-5 border border-slate-200 border-l-4 border-l-sky-600">
+              <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">Bushveld Complex Mining Hub</span>
+              <h4 class="font-display font-bold text-xl text-slate-900 uppercase mt-0.5">Rustenburg — North West</h4>
+              <p class="text-xs text-slate-600 mt-2">42 Ferro Street, Zinniaville Industrial, Rustenburg, 0299</p>
+              <div class="text-xs font-semibold text-slate-800 mt-2">Tel: +27 (0) 14 538 7700</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORPORATE FOOTER -->
+  <footer class="bg-slate-950 text-slate-400 border-t border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-14">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-10 border-b border-slate-800">
+        <!-- Brand Column -->
+        <div class="lg:col-span-4 space-y-4">
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 rounded-lg bg-amber-500 flex items-center justify-center">
+              <svg class="w-6 h-6 text-slate-950" viewBox="0 0 32 32" fill="none">
+                <path d="M16 2L28 9V23L16 30L4 23V9L16 2Z" stroke="currentColor" stroke-width="2.5"/>
+                <path d="M10 11L16 22L22 11" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-display font-bold text-xl tracking-wider text-white block leading-none">VEXTA</span>
+              <span class="text-[10px] font-semibold tracking-[0.2em] text-amber-400 uppercase block mt-0.5">Industrial Solutions</span>
+            </div>
+          </div>
+          <p class="text-sm text-slate-400 leading-relaxed">
+            Vexta Industrial Solutions (Pty) Ltd is a premier South African multidisciplinary heavy engineering, construction, shutdown & turnaround, and asset maintenance contractor.
+          </p>
+          <div class="text-xs font-mono text-slate-500">
+            Reg No: 2011/084921/07 &bull; VAT: 4720261984
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="lg:col-span-2 space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Navigation</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#about" class="hover:text-amber-400 transition">About Vexta</a></li>
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Capabilities</a></li>
+            <li><a href="#sectors" class="hover:text-amber-400 transition">Industry Sectors</a></li>
+            <li><a href="#hse" class="hover:text-amber-400 transition">HSE & Quality</a></li>
+            <li><a href="#projects" class="hover:text-amber-400 transition">Track Record</a></li>
+          </ul>
+        </div>
+
+        <!-- Capabilities Links -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Disciplines</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Shutdowns & Turnarounds (STO)</a></li>
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Mechanical, Piping & Steel (SMP)</a></li>
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Electrical & Instrumentation (EC&I)</a></li>
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Term Plant Maintenance</a></li>
+            <li><a href="#capabilities" class="hover:text-amber-400 transition">Modular Skid Fabrication</a></li>
+          </ul>
+        </div>
+
+        <!-- Accreditations -->
+        <div class="lg:col-span-3 space-y-3">
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-white">Accreditations & Governance</h4>
+          <div class="flex flex-wrap gap-2 text-xs font-mono">
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">ISO 9001:2015</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">ISO 14001:2015</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">ISO 45001:2018</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">ISO 3834-2</span>
+            <span class="px-2.5 py-1 rounded bg-slate-900 border border-slate-800 text-slate-300">CIDB 9ME / 9EP</span>
+            <span class="px-2.5 py-1 rounded bg-amber-500/15 border border-amber-500/30 text-amber-400">B-BBEE Level 1</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-slate-500">
+        <div>&copy; 2026 Vexta Industrial Solutions (Pty) Ltd. All Rights Reserved.</div>
+        <div class="flex gap-6">
+          <a href="#hse" class="hover:text-slate-300">SHEQ Policy</a>
+          <a href="#about" class="hover:text-slate-300">PAIA Manual</a>
+          <a href="#contact" class="hover:text-slate-300">Supplier Portal</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- TECHNICAL SCOPE MODAL / DRAWER -->
+  <div id="scope-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-950/80 backdrop-blur-sm p-4">
+    <div class="bg-white rounded-2xl max-w-2xl w-full border border-slate-200 shadow-2xl overflow-hidden animate-fadeIn">
+      <div class="bg-slate-900 text-white px-6 py-5 flex items-center justify-between border-b border-slate-800">
+        <div>
+          <span id="modal-code" class="text-xs font-mono text-amber-400 uppercase">DIV-01 // TECHNICAL SPECIFICATION</span>
+          <h3 id="modal-title" class="font-display font-bold text-2xl uppercase mt-0.5">Capability Title</h3>
+        </div>
+        <button type="button" onclick="closeScopeModal()" aria-label="Close Modal" class="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white hover:bg-slate-700 transition">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div class="p-6 space-y-5 max-h-[75vh] overflow-y-auto">
+        <p id="modal-desc" class="text-sm text-slate-600 leading-relaxed"></p>
+
+        <div>
+          <h4 class="font-display font-bold text-sm uppercase tracking-wider text-slate-900 mb-2">Detailed Technical Deliverables</h4>
+          <ul id="modal-deliverables" class="space-y-2 text-sm text-slate-700"></ul>
+        </div>
+
+        <div class="bg-slate-50 border border-slate-200 rounded-xl p-4">
+          <h4 class="font-display font-bold text-xs uppercase tracking-wider text-sky-700 mb-1">Applicable Codes & Standards</h4>
+          <p id="modal-standards" class="text-xs font-mono text-slate-700"></p>
+        </div>
+
+        <div class="flex justify-end gap-3 pt-2">
+          <button type="button" onclick="closeScopeModal()" class="px-4 py-2.5 rounded-lg border border-slate-300 text-xs font-bold uppercase text-slate-700 hover:bg-slate-100 transition">Close</button>
+          <a href="#contact" onclick="closeScopeModal()" class="px-5 py-2.5 rounded-lg bg-amber-500 hover:bg-amber-400 text-slate-950 font-display font-bold uppercase tracking-wider text-xs transition">Request Tender For This Scope</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- INTERACTIVE JAVASCRIPT -->
+  <script>
+    // 1. Mobile Navigation Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Close mobile menu when clicking a link
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
+    // 2. Animated Key Metrics Counters on Scroll
+    const counters = document.querySelectorAll('.counter');
+    let countersStarted = false;
+
+    function animateCounters() {
+      if (countersStarted) return;
+      countersStarted = true;
+      counters.forEach(counter => {
+        const target = parseFloat(counter.getAttribute('data-target'));
+        const decimals = parseInt(counter.getAttribute('data-decimals'), 10);
+        const duration = 1600;
+        const startTime = performance.now();
+
+        function update(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
+          // Ease-out cubic
+          const ease = 1 - Math.pow(1 - progress, 3);
+          const currentVal = target * ease;
+          counter.textContent = decimals > 0 ? currentVal.toFixed(decimals) : Math.floor(currentVal).toLocaleString();
+          if (progress < 1) {
+            requestAnimationFrame(update);
+          } else {
+            counter.textContent = decimals > 0 ? target.toFixed(decimals) : target.toLocaleString();
+          }
+        }
+        requestAnimationFrame(update);
+      });
+    }
+
+    // Trigger counter animation immediately if visible or on scroll
+    window.addEventListener('load', () => {
+      setTimeout(animateCounters, 300);
+    });
+
+    // 3. Capabilities Filter Logic
+    const capFilterBtns = document.querySelectorAll('.cap-filter-btn');
+    const capCards = document.querySelectorAll('.cap-card');
+
+    capFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        capFilterBtns.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-amber-400', 'border-slate-900');
+          b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+        });
+        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+        btn.classList.add('bg-slate-900', 'text-amber-400', 'border-slate-900');
+
+        const filter = btn.getAttribute('data-filter');
+        capCards.forEach(card => {
+          const categories = card.getAttribute('data-category');
+          if (filter === 'all' || categories.includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 4. Technical Scope Modal Data & Controls
+    const scopeDetails = {
+      sto: {
+        code: 'DIV-01 // SHUTDOWNS, TURNAROUNDS & OUTAGES',
+        title: 'Critical-Path Plant Turnaround Execution',
+        desc: 'Vexta deploys self-sufficient, shift-synchronized turnaround taskforces engineered to compress mechanical duration while eliminating start-up leaks and rework.',
+        deliverables: [
+          'Pre-shutdown walkdowns, blinds/spades registers, and Primavera P6 hour-by-hour scheduling',
+          'Heat exchanger bundle extraction, hydro-blasting, eddy-current testing & re-bundling',
+          'Fractionation column tray replacement, packing installation & nozzle modifications',
+          'Controlled hydraulic torqueing & ultrasonic bolt tensioning with ASME PCC-1 certification'
+        ],
+        standards: 'ASME PCC-1, ASME Sec VIII Div 1 & 2, API 510 / 570, SANS 347 (PER)'
+      },
+      smp: {
+        code: 'DIV-02 // STRUCTURAL, MECHANICAL & PIPING',
+        title: 'Heavy SMP Fabrication & Field Erection',
+        desc: 'Full-lifecycle mechanical, structural steel, and process piping execution across high-temperature, high-pressure, and corrosive slurry environments.',
+        deliverables: [
+          'Exotic & alloy spooling (P91, P22, 304L/316L, Duplex 2205, Inconel 625) with PWHT',
+          'Heavy structural steelwork, piperacks, conveyor galleries, chutes & thickener tanks',
+          'Rotating equipment installation: centrifugal compressors, multi-stage pumps, mills & gearboxes',
+          'Cold & hot laser shaft alignment, grouting, and precision baseplate leveling'
+        ],
+        standards: 'ASME B31.3, ASME B31.1, AWS D1.1, SANS 10162, ISO 3834-2'
+      },
+      eci: {
+        code: 'DIV-03 // ELECTRICAL, CONTROL & INSTRUMENTATION',
+        title: 'Turnkey Industrial EC&I & Hazardous Area Systems',
+        desc: 'Integrated high-reliability power distribution, process automation, and intrinsically safe instrumentation for volatile petrochemical and mining plants.',
+        deliverables: [
+          'MV/LV switchgear, transformers, VSD drives, busbars & high-voltage cable terminations',
+          'Hazardous area (Zone 1 & Zone 2) explosion-protected installations & Ex-dossiers',
+          'Field instrumentation mounting, stainless steel impulse tubing & HART/Fieldbus calibration',
+          'DCS/PLC/SIS panel marshalling, fiber-optic splicing, cold loop checks & FAT/SAT'
+        ],
+        standards: 'SANS 10142-1, SANS 10108, IEC 60079 (IECEx), ISA-5.1, IEC 61511'
+      },
+      mro: {
+        code: 'DIV-04 // INDUSTRIAL MAINTENANCE & ASSET INTEGRITY',
+        title: 'Multi-Year Term Maintenance & Statutory Integrity',
+        desc: 'Embedded site maintenance partnerships focused on maximizing plant availability, statutory pressure vessel compliance, and lifecycle cost reduction.',
+        deliverables: [
+          'Dedicated resident site planners, supervisors, millwrights, boilermakers & electricians',
+          'API 653 bulk storage tank repairs, annular ring replacement, jacking & pontoon upgrades',
+          'Corrosion Under Insulation (CUI) surveys, pipe support remediation & thermal cladding',
+          'Statutory Pressure Equipment Regulations (PER) inspection prep & AIA sign-off support'
+        ],
+        standards: 'API 653, API 570, API 579-1 (Fitness-For-Service), OHS Act SANS 347'
+      },
+      epc: {
+        code: 'DIV-05 // CAPITAL PROJECTS & MODULAR FABRICATION',
+        title: 'Turnkey Brownfield Expansions & Modular Skids',
+        desc: 'Off-site modular assembly paired with coordinated civil, structural, mechanical, and EC&I site construction to minimize brownfield tie-in disruption.',
+        deliverables: [
+          'Pre-assembled pipe racks (PAR), metering skids, chemical dosing & compressor packages',
+          'Pre-wired containerized electrical substations (E-Houses) tested prior to site transport',
+          'Heavy equipment foundations, acid-resistant bunds & structural steel erection',
+          'Integrated commissioning management & digital turnover documentation'
+        ],
+        standards: 'ISO 9001:2015, SANS 1200, ASME Sec IX, CIDB Grade 9ME / 9EP'
+      }
+    };
+
+    const scopeModal = document.getElementById('scope-modal');
+    function openScopeModal(key) {
+      const data = scopeDetails[key];
+      if (!data) return;
+      document.getElementById('modal-code').textContent = data.code;
+      document.getElementById('modal-title').textContent = data.title;
+      document.getElementById('modal-desc').textContent = data.desc;
+      document.getElementById('modal-standards').textContent = data.standards;
+
+      const listEl = document.getElementById('modal-deliverables');
+      listEl.innerHTML = '';
+      data.deliverables.forEach(item => {
+        const li = document.createElement('li');
+        li.className = 'flex items-start gap-2.5';
+        li.innerHTML = `<span class="w-5 h-5 rounded-full bg-amber-500/20 text-amber-600 flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">&#10003;</span><span>${item}</span>`;
+        listEl.appendChild(li);
+      });
+
+      scopeModal.classList.remove('hidden');
+      scopeModal.classList.add('flex');
+    }
+
+    function closeScopeModal() {
+      scopeModal.classList.add('hidden');
+      scopeModal.classList.remove('flex');
+    }
+
+    // Close modal on backdrop click
+    scopeModal.addEventListener('click', (e) => {
+      if (e.target === scopeModal) closeScopeModal();
+    });
+
+    // 5. Interactive Sector Selector Panel
+    const sectorData = {
+      petrochem: {
+        badge: 'HYDROCARBONS, SYNFUELS & CHEMICALS',
+        title: 'Petrochemical, Refining & Gas Processing',
+        summary: 'Supporting Southern Africa’s flagship coal-to-liquids (CTL), gas-to-liquids (GTL), crude refining, and specialty chemical complexes with high-integrity alloy piping, furnace revamps, and major statutory turnarounds.',
+        environments: ['Cracking & Distillation Units', 'Rectisol & Gasification Trains', 'Tank Farms & Horton Spheres', 'Hydrogen & Ammonia Synthesis'],
+        highlights: [
+          { label: 'Metallurgy Expertise', value: 'Cr-Mo (P11/P22/P91), Duplex, Hastelloy & 300-Series SS' },
+          { label: 'Safety Standard', value: 'Zero-leak flange management & Ex-Zone 1 certified crews' }
+        ]
+      },
+      mining: {
+        badge: 'PGM, CHROME, MANGANESE, COAL & GOLD',
+        title: 'Mining, Smelting & Mineral Beneficiation',
+        summary: 'Delivering heavy structural steel, SAG/Ball mill mechanical installations, flotation cells, smelter furnace rebuilds, and overland slurry piping across the Bushveld Igneous Complex and Northern Cape.',
+        environments: ['Concentrator & Dense Media Plants', 'Pyrometallurgical Smelters', 'Crushing, Screening & Conveyors', 'Tailings & Process Water Reticulation'],
+        highlights: [
+          { label: 'Mine Compliance', value: 'Full MHSA (Mine Health & Safety Act) & Dover-tested crews' },
+          { label: 'Wear Solutions', value: 'HDPE, rubber-lined & ceramic-lined abrasion-resistant piping' }
+        ]
+      },
+      power: {
+        badge: 'THERMAL BASELOAD, CO-GEN & UTILITY-SCALE RENEWABLES',
+        title: 'Power Generation & Energy Infrastructure',
+        summary: 'Executing high-pressure boiler tube replacements, steam turbine outages, flue-gas desulfurization (FGD) retrofits, and high-voltage grid tie-in substations for utility and IPP facilities.',
+        environments: ['600MW–800MW Coal & Gas Boilers', 'Steam & Gas Turbine Halls', '132kV / 400kV Substations', 'Concentrated Solar & BESS Tie-Ins'],
+        highlights: [
+          { label: 'Pressure Parts', value: 'ASME S-Stamp & ISO 3834-2 certified boiler tube welding' },
+          { label: 'Grid Readiness', value: 'HV switching, protection relay testing & SCADA integration' }
+        ]
+      },
+      manufacturing: {
+        badge: 'PULP & PAPER, STEELWORKS, CEMENT & FERTILIZER',
+        title: 'Pulp, Paper & Heavy Process Manufacturing',
+        summary: 'Rapid annual mill shuts, recovery boiler upgrades, digester vessel repairs, and continuous plant reliability maintenance across KwaZulu-Natal, Mpumalanga, and Gauteng.',
+        environments: ['Kraft Recovery Boilers & Digesters', 'Paper Machines & Drying Cylinders', 'Cement Kilns & Clinker Coolers', 'Nitric Acid & Fertilizer Plants'],
+        highlights: [
+          { label: 'Shutdown Agility', value: '7-to-14 day compressed annual mill shut execution' },
+          { label: 'Corrosion Control', value: 'Acid-grade stainless & titanium piping fabrication' }
+        ]
+      }
+    };
+
+    const sectorPanel = document.getElementById('sector-panel');
+    const sectorTabs = document.querySelectorAll('.sector-tab');
+
+    function renderSector(sectorKey) {
+      const d = sectorData[sectorKey];
+      if (!d) return;
+      sectorPanel.innerHTML = `
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-7 space-y-4">
+            <span class="inline-block px-3 py-1 rounded bg-amber-500/15 border border-amber-500/30 text-amber-400 font-mono text-xs font-bold">
+              ${d.badge}
+            </span>
+            <h3 class="font-display font-bold text-3xl sm:text-4xl uppercase text-white">
+              ${d.title}
+            </h3>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+              ${d.summary}
+            </p>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
+              ${d.highlights.map(h => `
+                <div class="bg-slate-800/80 border border-slate-700 rounded-xl p-4">
+                  <div class="text-xs font-mono text-sky-400 uppercase">${h.label}</div>
+                  <div class="text-sm font-semibold text-white mt-1">${h.value}</div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+
+          <div class="lg:col-span-5 bg-slate-950/90 border border-slate-800 rounded-xl p-6 space-y-4">
+            <div class="text-xs font-mono uppercase tracking-wider text-amber-400 border-b border-slate-800 pb-2">
+              Typical Plant Environments
+            </div>
+            <ul class="space-y-3">
+              ${d.environments.map(env => `
+                <li class="flex items-center gap-3 text-sm text-slate-200">
+                  <span class="w-2 h-2 rounded-sm bg-amber-500 shrink-0"></span>
+                  <span>${env}</span>
+                </li>
+              `).join('')}
+            </ul>
+            <div class="pt-3">
+              <a href="#contact" class="inline-flex items-center gap-2 text-xs font-display font-bold uppercase tracking-wider text-amber-400 hover:text-amber-300">
+                <span>Discuss ${d.title.split('&')[0].trim()} Scope</span>
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      `;
+    }
+
+    sectorTabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        sectorTabs.forEach(t => {
+          t.classList.remove('active', 'border-amber-500', 'bg-slate-900', 'text-white', 'shadow-md');
+          t.classList.add('border-slate-200', 'bg-slate-50', 'text-slate-900');
+          t.querySelector('div:first-child').classList.remove('text-amber-400');
+          t.querySelector('div:first-child').classList.add('text-slate-500');
+        });
+        tab.classList.add('active', 'border-amber-500', 'bg-slate-900', 'text-white', 'shadow-md');
+        tab.classList.remove('border-slate-200', 'bg-slate-50', 'text-slate-900');
+        tab.querySelector('div:first-child').classList.add('text-amber-400');
+        tab.querySelector('div:first-child').classList.remove('text-slate-500');
+
+        renderSector(tab.getAttribute('data-sector'));
+      });
+    });
+
+    // Initialize default sector
+    renderSector('petrochem');
+
+    // 6. Track Record Filter Logic
+    const projFilterBtns = document.querySelectorAll('.proj-filter-btn');
+    const projCards = document.querySelectorAll('.proj-card');
+
+    projFilterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        projFilterBtns.forEach(b => {
+          b.classList.remove('bg-slate-900', 'text-amber-400', 'border-slate-900');
+          b.classList.add('bg-white', 'text-slate-700', 'border-slate-300');
+        });
+        btn.classList.remove('bg-white', 'text-slate-700', 'border-slate-300');
+        btn.classList.add('bg-slate-900', 'text-amber-400', 'border-slate-900');
+
+        const filter = btn.getAttribute('data-proj-filter');
+        projCards.forEach(card => {
+          const sec = card.getAttribute('data-proj-sector');
+          if (filter === 'all' || sec.includes(filter)) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // 7. Interactive Tender Inquiry Form Submission
+    const tenderForm = document.getElementById('tender-form');
+    const tenderConfirmation = document.getElementById('tender-confirmation');
+
+    tenderForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const projectType = document.querySelector('input[name="projectType"]:checked').value;
+      const sector = document.getElementById('sectorSelect').value;
+      const scale = document.getElementById('workforceScale').value;
+      const name = document.getElementById('contactName').value;
+      const company = document.getElementById('companyName').value;
+      const email = document.getElementById('contactEmail').value;
+
+      const randomId = Math.floor(1000 + Math.random() * 9000);
+      document.getElementById('ref-number').textContent = `REF: VXT-RFQ-2026-${randomId}`;
+      document.getElementById('confirmation-summary').innerHTML = `
+        Thank you, <strong>${name}</strong> (<strong>${company}</strong>). Your inquiry for a <strong>${projectType}</strong> within the <strong>${sector}</strong> sector (<em>${scale}</em>) has been routed to our Senior Estimating Lead. A formal acknowledgement and NDA/capability pack has been dispatched to <strong>${email}</strong>.
+      `;
+
+      tenderForm.classList.add('hidden');
+      tenderConfirmation.classList.remove('hidden');
+    });
+
+    function resetTenderForm() {
+      tenderForm.reset();
+      tenderConfirmation.classList.add('hidden');
+      tenderForm.classList.remove('hidden');
+    }
+  </script>
+</body>
 </html>
